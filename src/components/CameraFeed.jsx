@@ -50,16 +50,16 @@ class CameraFeed extends React.Component {
   }
 
   turnCameraOn = async () => {
-    const cameras = await navigator.mediaDevices.enumerateDevices()
+    var cameras = await navigator.mediaDevices.enumerateDevices()
     this.processDevices(cameras)
   }
 
   takePhoto = () => {
-      const context = this.canvas.current.getContext('2d')
-      var myEl = this.videoPlayer.current;
-      context.filter = myEl.style.filter;
-      
-      context.drawImage(myEl, 0, 0, this.canvas.current.width, this.canvas.current.height)
+      var context = this.canvas.current.getContext('2d')
+      var myFrameEl = this.videoPlayer.current;
+      var effectText = this.getEffectText();
+      context.filter = effectText;
+      context.drawImage(myFrameEl, 0, 0, this.canvas.current.width, this.canvas.current.height)
   }
 
   changeEffect = (props) => {
@@ -75,7 +75,7 @@ class CameraFeed extends React.Component {
     console.log("getEffectText() called...")
     switch(this.state.effect) {
       case "none": 
-        return "";
+        return "none";
       case "blur":
         return "blur(5px)";
       case "brightness":

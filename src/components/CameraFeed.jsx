@@ -56,7 +56,7 @@ class CameraFeed extends React.Component {
 
   takePhoto = () => {
       const context = this.canvas.current.getContext('2d')
-      context.drawImage(this.videoPlayer.current, 0, 0, this.canvas.current.width, this.canvas.current.height)
+      context.drawImage(document.getElementById("videoPlayer").current, 0, 0, this.canvas.current.width, this.canvas.current.height)
   }
 
   changeEffect = (props) => {
@@ -128,7 +128,7 @@ class CameraFeed extends React.Component {
      </Dropdown>
 
         <div className="c-camera-feed__stage mt-2">
-          <canvas className='canvas' width="680" height="360" ref={this.canvas} />
+          <canvas className='canvas' width="680" height="360" ref={this.canvas} style={{filter: this.getEffectText()}}/>
         </div>
       </div>
     )

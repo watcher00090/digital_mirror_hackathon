@@ -56,7 +56,10 @@ class CameraFeed extends React.Component {
 
   takePhoto = () => {
       const context = this.canvas.current.getContext('2d')
-      context.drawImage(document.getElementById("videoPlayer").current, 0, 0, this.canvas.current.width, this.canvas.current.height)
+      var myEl = this.videoPlayer.current;
+      context.filter = myEl.style.filter;
+      
+      context.drawImage(myEl, 0, 0, this.canvas.current.width, this.canvas.current.height)
   }
 
   changeEffect = (props) => {
@@ -74,25 +77,25 @@ class CameraFeed extends React.Component {
       case "none": 
         return "";
       case "blur":
-        return "blur(20px)";
+        return "blur(5px)";
       case "brightness":
         return "brightness(60%)"
       case "contrast":
         return "contrast(150%)"
       case "drop-shadow":
-        return "drop-shadow"
+        return "drop-shadow(16px 16px 10px rgba(0,0,0,0.9))"
       case "grayscale":
-        return "grayscale(20%)"
+        return "grayscale(200%)"
       case "hue-rotate":
-        return "hue-rotate(.8)"
+        return "hue-rotate(90deg)"
       case "invert":
         return "invert(.8)"
       case "opacity":
         return "opacity(60%)";
       case "saturate":
         return "saturate(250%)";
-      case "sephia":
-        return "sephia(150%)"
+      case "sepia":
+        return "sepia(80%)"
       default:
         return "ERROR";
     }
@@ -123,12 +126,12 @@ class CameraFeed extends React.Component {
         <Dropdown.Item onClick={() => this.changeEffect({effect: "invert"})}>invert</Dropdown.Item>
         <Dropdown.Item onClick={() => this.changeEffect({effect: "opacity"})}>opacity</Dropdown.Item>
         <Dropdown.Item onClick={() => this.changeEffect({effect: "saturate"})}>saturate</Dropdown.Item>
-        <Dropdown.Item onClick={() => this.changeEffect({effect: "sephia"})}>sephia</Dropdown.Item>
+        <Dropdown.Item onClick={() => this.changeEffect({effect: "sepia"})}>sephia</Dropdown.Item>
       </Dropdown.Menu>
      </Dropdown>
 
         <div className="c-camera-feed__stage mt-2">
-          <canvas className='canvas' width="680" height="360" ref={this.canvas} style={{filter: this.getEffectText()}}/>
+          <canvas className='canvas' width="680" height="360" ref={this.canvas} />
         </div>
       </div>
     )

@@ -1,8 +1,9 @@
 {
   "name": "Digital-Mirror",
+  "description": "A really cool app",
   "version": "0.1.0",
   "homepage": "https://sheltered-shore-56110.herokuapp.com/",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

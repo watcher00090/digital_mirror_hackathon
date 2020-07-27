@@ -20,7 +20,7 @@ const MintNav = () => {
     <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
     {/* <Nav.Link target="_blank" rel="noopener noreferrer" href="#link">CareerHack 7-27</Nav.Link> */}
-    <Nav.Link target="_blank" rel="noopener noreferrer" href="https://github.com/zackmckenna/tutorial-27">Repo</Nav.Link>
+    <Nav.Link target="_blank" rel="noopener noreferrer" href="https://github.com/watcher00090/digital_mirror_hackathon">Repo</Nav.Link>
     </Nav>
     </Navbar.Collapse>
   </Navbar>

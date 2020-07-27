@@ -48,7 +48,7 @@ const CameraFeed = () => {
   return (
     <div className="c-camera-feed">
       <div className="c-camera-feed__viewer">
-        <video ref={videoPlayer} width="680" heigh="360" />
+        <video ref={videoPlayer} width="680" height="360" style={{filter: "invert(.8)"}}/>
       </div>
       <Button className='mr-2' onClick={() => turnCameraOff()}>Turn off Camera</Button>
       <Button className='mr-2' onClick={() => turnCameraOn()}>Turn on Camera</Button>
@@ -61,3 +61,4 @@ const CameraFeed = () => {
 }
 
 export default CameraFeed
+

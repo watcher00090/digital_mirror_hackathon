@@ -1,8 +1,7 @@
 {
-  "name": "tutorial-27",
-  "description": "This project was generated from the Mintbean react-gh-pages template using the mintbean-cli tool.",
+  "name": "Digital Mirror",
   "version": "0.1.0",
-  "homepage": "https://zackmckenna.github.io/tutorial-27/",
+  "homepage": "https://sheltered-shore-56110.herokuapp.com/",
   "private": true,
   "scripts": {
     "start": "react-scripts start",

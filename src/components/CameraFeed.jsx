@@ -13,8 +13,8 @@ class CameraFeed extends React.Component {
     this.possibleEffects = ["none", "blur", "brightness", "contrast", 
       "drop-shadow", "grayscale", "hue-rotate", "invert", "opacity", "saturate", "sephia", "url"];
    
-    this.state="none";
-    this.setState({effect: "none"});
+    this.state = "dummy";
+    this.setState({effect: "none", videoWidth: 680, videoHeight: 360});  
   } 
 
   /*
@@ -52,6 +52,11 @@ class CameraFeed extends React.Component {
   turnCameraOn = async () => {
     var cameras = await navigator.mediaDevices.enumerateDevices()
     this.processDevices(cameras)
+
+    var video = document.getElementById("videoPlayer");
+    await new Promise(resolve => video.onloadedmetadata = resolve);
+    console.log(`${video.videoWidth}x${video.videoHeight}`); // 640x480
+    this.setState({effect: this.state.effect, videoWidth: video.videoWidth, videoHeight: video.videoHeight});  
   }
 
   takePhoto = () => {
@@ -131,7 +136,7 @@ class CameraFeed extends React.Component {
      </Dropdown>
 
         <div className="c-camera-feed__stage mt-2">
-          <canvas className='canvas' width="680" height="360" ref={this.canvas} />
+          <canvas className='canvas' width={this.state.videoWidth} height={this.state.videoHeight} ref={this.canvas} />
         </div>
       </div>
     )
